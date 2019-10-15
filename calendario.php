@@ -8,7 +8,13 @@
     try {
         //code...
         require_once('includes/funciones/bd_conexion.php');
-        $sql = 'SELECT * FROM eventos';
+        $sql = "SELECT id_evento, nombre, fecha_evento, hora_evento, cat_evento, nombre_invitado, apellido_invitado ";
+        $sql .= " FROM eventos";
+        $sql .= " INNER JOIN categoria_evento ";
+        $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+        $sql .= " INNER JOIN invitados ";
+        $sql .= " ON eventos.id_inv = invitados.id_invitado ";
+        $sql .= " ORDER BY id_evento ";
         $resultado = $conn->query($sql);
     } catch (\Exception $e) {
         //throw $th;
@@ -17,14 +23,33 @@
     ?>
 
     <div class="calendario">
+
         <?php
-        $eventos = $resultado->fetch_assoc();
-        ?>
+
+        $calendario = array();
+
+        while ($eventos = $resultado->fetch_assoc()) {
+
+            // Obtiene la fecha del evento
+            $fecha = $eventos['fecha_evento'];
+
+            $evento = array(
+                'titulo' => $eventos['nombre'],
+                'fecha' => $eventos['fecha_evento'],
+                'hora' => $eventos['hora_evento'],
+                'categoria' => $eventos['cat_evento'],
+                'invitado' => $eventos['nombre_invitado'] . " " . $eventos['apellido_invitado']
+            );
+
+            $calendario[$fecha][] = $evento;
+
+            ?>
+        <?php } ?>
 
         <pre>
-        <?php var_dump($eventos); ?>
-    </pre>
-
+            <?php var_dump($calendario); ?>
+        </pre>
+        
     </div>
 
     <?php
