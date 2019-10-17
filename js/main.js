@@ -40,16 +40,18 @@
     var camisas = document.getElementById('camisa_evento');
     var etiquetas = document.getElementById('etiquetas');
 
-    calcular.addEventListener('click', calcularMontos);
+    if (calcular) {
+      calcular.addEventListener('click', calcularMontos);
 
-    pase_dia.addEventListener('blur', mostrarDias);
-    pase_dosdias.addEventListener('blur', mostrarDias);
-    pase_completo.addEventListener('blur', mostrarDias);
+      pase_dia.addEventListener('blur', mostrarDias);
+      pase_dosdias.addEventListener('blur', mostrarDias);
+      pase_completo.addEventListener('blur', mostrarDias);
 
-    nombre.addEventListener('blur', validarCampos);
-    apellido.addEventListener('blur', validarCampos);
-    email.addEventListener('blur', validarCampos);
-    email.addEventListener('blur', validarMail);
+      nombre.addEventListener('blur', validarCampos);
+      apellido.addEventListener('blur', validarCampos);
+      email.addEventListener('blur', validarCampos);
+      email.addEventListener('blur', validarMail);
+    }
 
     function validarCampos() {
       if (this.value == '') {
