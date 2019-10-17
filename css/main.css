@@ -300,43 +300,52 @@ h1.nombre-sitio span {
   text-shadow: 0 0 30px #000;
 }
 
-@media only screen and (min-width: 992px){
+@media only screen and (min-width: 992px) {
   .char14 {
     top: 20px;
     right: 20px;
   }
+
   .char15 {
     top: 0px;
     left: -10px;
   }
+
   .char16 {
     top: -10px;
     right: 20px;
   }
+
   .char17 {
     top: 5px;
     right: 10px;
   }
+
   .char18 {
     top: 15px;
     left: 5px;
   }
+
   .char19 {
     top: 10px;
     left: 0px;
   }
+
   .char20 {
     top: -10px;
     left: 5px;
   }
+
   .char21 {
     top: 10px;
     right: 10px;
   }
+
   .char22 {
     top: 0px;
     left: -10px;
   }
+
   .char23 {
     top: 20px;
     right: 15px;
@@ -919,7 +928,7 @@ p.copyright {
 
 /** INTERNAS **/
 
-/* Conferencias */ 
+/* Conferencias */
 
 .conferencia .navegacion-principal .activo {
   border-bottom: 2px solid #fe4918;
@@ -1014,34 +1023,34 @@ div.paquetes .tabla-precio input {
 /* Resumen registro */
 
 div.resumen p {
-    font-size: 1.2em;
-    text-transform: uppercase;
+  font-size: 1.2em;
+  text-transform: uppercase;
 }
 
 div.resumen .extras {
-    float: left;
-    width: 50%;
-    padding: 30px;
+  float: left;
+  width: 50%;
+  padding: 30px;
 }
 
 div.resumen div.orden {
-    text-align: left;
-    margin-bottom: 10px;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 div.resumen div.orden input {
-    margin: 10px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 div.resumen div.total {
-    float: right;
-    width: 50%;
-    padding: 30px;
+  float: right;
+  width: 50%;
+  padding: 30px;
 }
 
 div.resumen input {
-    display: block;
-    margin: 30px auto;
+  display: block;
+  margin: 30px auto;
 }
 
 #lista-productos {
@@ -1145,6 +1154,56 @@ div.resumen input {
   padding: 20px;
   text-align: center;
   display: none;
+}
+
+/** Calendario **/
+
+div.calendario h3 {
+  background-color: #fe4918;
+  clear: both;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+div.calendario::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+div.dia {
+  padding: 15px;
+  width: 50%;
+  min-height: 15em;
+  float: left;
+  border: 2px solid #e1e1e1;
+  transition: all .3s ease-in-out;
+}
+
+@media only screen and (min-width: 768px) {
+  div.dia {
+    width: 33.3%;
+  }
+}
+
+div.dia:hover {
+  background-color: #e7e7e7;
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+}
+
+div.dia p {
+  font-size: 1em;
+}
+
+div.dia p.titulo {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div.dia i {
+  color: #fe4918;
 }
 
 /* ==========================================================================
