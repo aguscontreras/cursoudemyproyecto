@@ -28,11 +28,51 @@
           Programa del evento
         </h2>
 
+        <?php
+        try {
+          //code...
+          require_once('includes/funciones/bd_conexion.php');
+          $sql = "SELECT * FROM `categoria_evento` ";
+          $resultado = $conn->query($sql);
+        } catch (\Exception $e) {
+          //throw $th;
+          echo $e->getMessage();
+        }
+        ?>
+
         <nav class="menu-programa">
-          <a href="#talleres"><i class="fas fa-code"></i>&ensp;Talleres</a>
-          <a href="#conferencias"><i class="fas fa-comments"></i>&ensp;Conferencias</a>
-          <a href="#seminarios"><i class="fas fa-university"></i>&ensp;Seminarios</a>
+          <?php while ($cat = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+            <?php $categoria = $cat['cat_evento']; ?>
+            <a href="#<?php echo strtolower($categoria) ?>">
+              <i class="fas <?php echo $cat['icono']; ?>"></i> <?php echo $categoria; ?>
+            </a>
+          <?php } ?>
         </nav>
+
+        <?php
+        try {
+          //code...
+          require_once('includes/funciones/bd_conexion.php');
+          $sql = "SELECT id_evento, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
+          $sql .= " FROM eventos";
+          $sql .= " INNER JOIN categoria_evento ";
+          $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+          $sql .= " INNER JOIN invitados ";
+          $sql .= " ON eventos.id_inv = invitados.id_invitado ";
+          $sql .= "AND eventos.id_cat_evento = 1 ";
+          $sql .= " ORDER BY id_evento LIMIT 2 ";
+          $resultado = $conn->query($sql);
+        } catch (\Exception $e) {
+          //throw $th;
+          echo $e->getMessage();
+        }
+        ?>
+
+        <?php $eventos = $resultado->fetch_assoc(); ?>
+
+        <pre>
+          <?php var_dump($eventos); ?>
+        </pre>
 
         <div id="talleres" class="info-curso ocultar clearfix">
           <div class="detalle-evento">
