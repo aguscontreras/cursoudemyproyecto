@@ -1065,6 +1065,27 @@ div.resumen input {
   color: #fe4918;
 }
 
+/* COLORBOX */
+
+div.cboxElement {
+  padding: 30px!important;
+}
+
+div.cboxElement img {
+  display: block;
+  margin: 0 auto!important;
+  width: 30%;
+  float: left;
+  margin-right: 1rem!important;
+}
+
+div.cboxElement p {
+  width: 65%;
+  margin-top: 0;
+  float: right;
+  font-size: .9rem;
+}
+
 
 /* ==========================================================================
    Helper classes
