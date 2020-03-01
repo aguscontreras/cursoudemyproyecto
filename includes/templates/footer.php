@@ -31,6 +31,7 @@
     <p class="copyright">
         Todos los derechos reservados GDLWEBCAMP 2018.
     </p>
+    
 </footer>
 
 <script src="js/vendor/modernizr-3.6.0.min.js"></script>
@@ -68,6 +69,9 @@ if ($pagina == 'invitados' || $pagina == 'index') {
     ga('send', 'pageview')
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us19.list-manage.com","uuid":"f1eb7315e5cc7e078c2f96b88","lid":"ba7b3746cd","uniqueMethods":true}) })</script>
+
 </body>
 
 </html>
