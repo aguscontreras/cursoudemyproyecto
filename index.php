@@ -85,7 +85,11 @@
 
         do {
           $resultado = $conn->store_result();
-          $row = $resultado->fetch_all(MYSQLI_ASSOC);
+          if ($resultado !== FALSE) {
+            $row = $resultado->fetch_all(MYSQLI_ASSOC);
+          } else {
+            echo "Algo se cago por aca";
+          }
           ?>
 
           <?php $i = 0; ?>
